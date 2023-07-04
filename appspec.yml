@@ -1,0 +1,10 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ubuntu/graana-admin
+hooks:
+  AfterInstall:
+    - location: scripts/build_code.sh
+      timeout: 200
+      runas: root

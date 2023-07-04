@@ -1,0 +1,147 @@
+// Here you can add other styles
+
+.login .companyLogo {
+  width: 160px;
+  height: 100px;
+  object-fit: contain;
+  overflow: hidden;
+  // background-color: #fff;
+  border-radius: 50%;
+}
+
+.fa-spinner .fa-pulse .hidden {
+  display: none !important;
+}
+
+.pull-right {
+  justify-content: flex-end;
+  display: flex;
+}
+
+a {
+  color: $red
+}
+
+p {
+  margin: 0 !important;
+}
+
+.sidebar {
+  .nav-link {
+    &.active {
+      i {
+        //color: $sidebar-nav-link-active-icon-color-graana;
+        color: white;
+      }
+    }
+  }
+}
+
+.app-header.navbar {
+  .navbar-brand {
+    .png-logo {
+      display: none;
+    }
+    .companyLogo {
+      width: 145px;
+      height: 55px;
+      object-fit: contain;
+      overflow: hidden;
+      margin-left: 10px;
+    }
+  }
+}
+
+.brand-minimized {
+  .app-header.navbar {
+    .navbar-brand {
+      padding: 7px;
+      .svg-logo {
+        display: none;
+      }
+      .png-logo {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.admin-heading {
+  color: white;
+  margin-top: 12px;
+  font-weight: 600;
+}
+
+.table-responsive {
+  background: #ffffff;
+  margin-bottom: 1rem;
+  border: 1px solid #a4b7c1;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.table thead th {
+  border-bottom: none;
+  border-top: none;
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+.btn-info {
+  color: #ffffff;
+}
+
+.btn-info:hover {
+  color: #ffffff;
+}
+
+.modal-content {
+  border-radius: 0.3rem;
+}
+
+.pagination {
+  display: inline-flex;
+  max-width: 100%;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  margin-bottom: 0.4rem;
+}
+
+select.form-control:not([size]):not([multiple]) {
+  height: calc(2.0625rem + 3px);
+}
+
+@media (max-width: 991px) {
+  .app-header.navbar {
+    .navbar-brand {
+      .png-logo {
+        max-width: 40px;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .mobile-space {
+    padding-top: 8px;
+  }
+}
+
+@media (max-width: 576px) {
+  .loginLogo-container {
+    display: block;
+  }
+}
+
+
+.loginLogo-container {
+  background: #382636;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}

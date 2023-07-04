@@ -1,0 +1,40 @@
+// Override Boostrap variables
+@import "bootstrap-variables";
+
+// Import Bootstrap source files
+@import "node_modules/bootstrap/scss/bootstrap";
+
+// Override core variables
+@import "core-variables";
+
+// Import core styles
+@import "core/core";
+
+// Old Dashboard styles
+@import "dashboard";
+
+// Custom styles
+@import "custom";
+
+.DateInput_1 {
+    width: 100% !important;
+}
+
+.react-timerange-picker__range-divider {
+    margin-right: 15px;
+}
+
+.SingleDatePicker_picker {
+  top: 50px !important;
+  z-index: 100;
+}
+
+.text-editor {
+  z-index: 10;
+}
+
+:focus,
+:active {
+  outline: none !important;
+  box-shadow: unset !important;
+}
