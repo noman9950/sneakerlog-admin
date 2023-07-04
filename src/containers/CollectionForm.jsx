@@ -6,7 +6,7 @@ import { Button } from 'reactstrap';
 import { API_END_POINT } from '../config';
 import Cookie from 'js-cookie';
 
-import ToggleButton from 'react-ios-switch';;
+import ToggleButton from 'react-ios-switch';
 
 import Select from 'react-select';
 //import 'react-select/dist/react-select.css';

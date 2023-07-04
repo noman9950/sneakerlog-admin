@@ -5,6 +5,7 @@ import {Pagination} from 'react-bootstrap';
 
 import { API_END_POINT } from '../config';
 import Cookie from 'js-cookie';
+import Swal from 'sweetalert2';
 const token = Cookie.get('sneakerlog_access_token');
 
 export default class Collection extends React.Component {
@@ -44,7 +45,16 @@ export default class Collection extends React.Component {
   }
   
   deleteCollection(collectionId, index) {
-    if(confirm("Are you sure you want to delete this collection?")) {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Delete'
+  }).then((result) => {
+    if (result.value) {
       axios.delete(`${API_END_POINT}/api/v1/collection/${collectionId}`)
         .then(response => {
           const collections = this.state.collections.slice();
@@ -53,7 +63,7 @@ export default class Collection extends React.Component {
           window.alert(response.data.message);
         });
     }
-  }
+  })}
 
   handleSelect(page) {
     axios.get(`/api/area?offset=${(page-1)*10}`)

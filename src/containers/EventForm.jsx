@@ -17,7 +17,7 @@ import TimePicker from "../components/TimePicker";
 import { SingleDatePicker } from "react-dates";
 import TimeRangePicker from "@wojtekmaj/react-timerange-picker";
 import moment from "moment";
-
+import { API_END_POINT } from '../config';
 export default class EventForm extends React.Component {
   constructor(props) {
     super(props);

@@ -6,7 +6,7 @@ import { Button } from 'reactstrap';
 import {signUp} from "../backend/services/authService";
 import {addAdmin} from "../backend/services/adminService"
 import SnackBar from "../components/SnackBar";
-
+import { API_END_POINT } from '../config';
 import Select from 'react-select';
 //import 'react-select/dist/react-select.css';
 
@@ -59,7 +59,7 @@ export default class MemberForm extends React.Component {
 
       this.setState({ loading: true });
       if (match.params.memberId) {
-        axios.put(`${API_END_POINT}/api/v1/admin/${match.params.memberId}`, fd)
+        axios.put(`${API_END_POINT}/api/v1/admin/${match.params.memberId}`,)
           .then((response) => {
             if (response.data && response.data.status && response.status === 200) {
               window.alert("Updated !");
