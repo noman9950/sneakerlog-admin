@@ -194,6 +194,7 @@ export default class Events extends React.Component {
     }
 
     handleDeleteEvents = async (e) => {
+        console.log("testttttt")
         const eventsList = this.state.events;
         const eventsToDelete = (eventsList).filter((event) => event.checked);
         this.setState({loading: true, responseMessage: "Deleting events", events: []})

@@ -5,7 +5,6 @@ import {Pagination} from 'react-bootstrap';
 
 import { API_END_POINT } from '../config';
 import Cookie from 'js-cookie';
-import Swal from 'sweetalert2';
 const token = Cookie.get('sneakerlog_access_token');
 
 export default class PrivacyPolicy extends React.Component {
@@ -45,16 +44,7 @@ export default class PrivacyPolicy extends React.Component {
   }
   
   deletePrivacyPolicy(privacyPolicyId, index) {
-    Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Delete'
-  }).then((result) => {
-    if (result.value) {
+    // if(confirm("Are you sure you want to delete this privacyPolicy?")) {
       axios.delete(`${API_END_POINT}/api/v1/privacyPolicy/${privacyPolicyId}`)
         .then(response => {
           const privacyPolicy = this.state.privacyPolicy.slice();
@@ -62,8 +52,8 @@ export default class PrivacyPolicy extends React.Component {
           this.setState({ privacyPolicy });
           window.alert(response.data.message);
         });
-    }
-  })}
+    // }
+  }
 
   handleSelect(page) {
     axios.get(`/api/area?offset=${(page-1)*10}`)

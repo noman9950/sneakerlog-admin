@@ -365,6 +365,7 @@ export default class Users extends React.Component {
                            (  paginatedUsers.length >= 1  ?
                                 paginatedUsers.map((user, index) => (
                                     <tr key={index}>
+                                        {console.log(user,"usertest")}
                                         <td><span>
                                             <input type={"checkbox"} checked={user.checked}
                                                    onChange={(e) => this.handleSelectUser(user.index-1)}/>

@@ -1,6 +1,6 @@
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
-import 'firebase/compat/firestore';
+import firebase from 'firebase';
+// import 'firebase/compat/auth';
+// import 'firebase/compat/firestore';
 
 // export const signUp = async (email, password) => {
 //   let success = true;

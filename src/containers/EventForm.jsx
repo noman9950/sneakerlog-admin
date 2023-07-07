@@ -17,7 +17,8 @@ import TimePicker from "../components/TimePicker";
 import { SingleDatePicker } from "react-dates";
 import TimeRangePicker from "@wojtekmaj/react-timerange-picker";
 import moment from "moment";
-import { API_END_POINT } from '../config';
+import { API_END_POINT } from "../config";
+
 export default class EventForm extends React.Component {
   constructor(props) {
     super(props);
@@ -266,6 +267,7 @@ export default class EventForm extends React.Component {
     const isEdit = !!match.params.eventId;
 
     return (
+     
       <div className="row animated fadeIn">
         {showSnackBar && (
           <SnackBar
@@ -275,10 +277,10 @@ export default class EventForm extends React.Component {
             onClose={() => this.closeSnackBar()}
           />
         )}
-        <div className="col-12">
+         <div className="col-12">
           <div className="row">
             <div className="col-md-12 col-sm-12">
-              <div className="x_panel">
+        <div className="x_panel">
                 <div className="x_title">
                   <h2>Enter Event Details</h2>
                 </div>
@@ -307,7 +309,7 @@ export default class EventForm extends React.Component {
                       </div>
                     </div>
 
-                    {appEvent.image && appEvent.image.length ? (
+                   {appEvent.image && appEvent.image.length ? (
                       <div className="form-group row">
                         <label className="control-label col-md-3 col-sm-3"></label>
                         <div className="col-md-6 col-sm-6">
@@ -320,7 +322,7 @@ export default class EventForm extends React.Component {
                           />
                         </div>
                       </div>
-                    ) : null}
+                 ) : null}
 
                     <div className="form-group row">
                       <label className="control-label col-md-3 col-sm-3">
@@ -398,7 +400,7 @@ export default class EventForm extends React.Component {
                       </div>
                     </div>
 
-                    <div className="form-group row">
+                     <div className="form-group row">
                       <label className="control-label col-md-3 col-sm-3">
                         Location
                       </label>
@@ -414,7 +416,7 @@ export default class EventForm extends React.Component {
                       </div>
                     </div>
 
-                    <div className="form-group row">
+                   <div className="form-group row">
                       <label className="control-label col-md-3 col-sm-3">
                         About
                       </label>
@@ -445,9 +447,9 @@ export default class EventForm extends React.Component {
                       />
                       </div>
                     </div> */}
-
-                    <div className="ln_solid" />
-                    <div className="form-group row">
+         
+                     <div className="ln_solid" />
+                    <div className="form-group row"> 
                       <div className="col-md-6 col-sm-6 offset-md-3">
                         <Button
                           className={`btn btn-success btn-lg ${
@@ -474,7 +476,7 @@ export default class EventForm extends React.Component {
               </div>
             </div>
           </div>
-        </div>
+        </div> 
       </div>
     );
   }

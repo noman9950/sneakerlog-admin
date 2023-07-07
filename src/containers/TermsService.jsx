@@ -5,7 +5,6 @@ import {Pagination} from 'react-bootstrap';
 
 import { API_END_POINT } from '../config';
 import Cookie from 'js-cookie';
-import Swal from 'sweetalert2';
 const token = Cookie.get('sneakerlog_access_token');
 
 export default class TermsService extends React.Component {
@@ -45,16 +44,7 @@ export default class TermsService extends React.Component {
   }
   
   deleteTermsService(termsServiceId, index) {
-    Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Delete'
-  }).then((result) => {
-    if (result.value) {
+    // if(confirm("Are you sure you want to delete this termsService?")) {
       axios.delete(`${API_END_POINT}/api/v1/termsService/${termsServiceId}`)
         .then(response => {
           const termsService = this.state.termsService.slice();
@@ -62,8 +52,8 @@ export default class TermsService extends React.Component {
           this.setState({ termsService });
           window.alert(response.data.message);
         });
-    }
-  })}
+    // }
+  }
 
   handleSelect(page) {
     axios.get(`/api/area?offset=${(page-1)*10}`)

@@ -2,15 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import RichTextEditor from 'react-rte';
-import { Button } from 'reactstrap';
-import { API_END_POINT } from '../config';
+
 import Cookie from 'js-cookie';
 
 import ToggleButton from 'react-ios-switch';
 
 import Select from 'react-select';
-//import 'react-select/dist/react-select.css';
-
+import { Button } from 'reactstrap';
+import { API_END_POINT } from '../config';
 export default class CollectionForm extends React.Component {
   constructor(props) {
     super(props);

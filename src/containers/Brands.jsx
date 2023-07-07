@@ -317,6 +317,7 @@ export default class Brand extends React.Component {
                             {this.state.loading==false?
                                 paginatedBrands.map((brand, index) => (
                                     <tr key={index}>
+                                        {console.log(brand,"bradtest")}
                                         <td>
                                             <span>
                                             <input type={"checkbox"} checked={brand.checked}
