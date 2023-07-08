@@ -33,7 +33,6 @@ export default class Brand extends React.Component {
     componentWillMount() {
         this.fetchBrand();
     }
-
     fetchBrand = () => {
         this.setState({loading: true})
         getBrands()
@@ -59,7 +58,7 @@ export default class Brand extends React.Component {
             })
     }
     fetchBrandPlus = (a) => {
-        this.setState({loading: true})
+        this.setState({loading: true,responseMessage:"Loading Brands..."})
         getBrands()
             .then(response => {
                 response = response.map((r, index) => {
@@ -83,7 +82,7 @@ export default class Brand extends React.Component {
             })
     }
     fetchBrandMinus = (a) => {
-        this.setState({loading: true})
+        this.setState({loading: true,responseMessage:"Loading Brands..."})
         getBrands()
             .then(response => {
                 response = response.map((r, index) => {
@@ -350,10 +349,11 @@ export default class Brand extends React.Component {
                         <Pagination prev next items={this.state.pages} activePage={this.state.activePage}
                                     onSelect={this.handleSelect.bind(this)}> </Pagination>
                     </div> */}
+                    {/* {this.fetchBrandMinus(this.state.activePage)} */}
                      <div className="text-center">
                             <Pagination>
-                                            <Pagination.Prev disabled={this.state.activePage>1?false:true}  onClick={()=>{this.fetchBrandMinus(this.state.activePage)}}/>
-                                            <Pagination.Next disabled={this.state.activePage<this.state.pages?false:true} onClick={()=>{this.fetchBrandPlus(this.state.activePage)}}/>
+                                            <Pagination.Prev disabled={this.state.activePage>1?false:true}  onClick={()=>{this.setState({activePage:this.state.activePage-1})}}/>
+                                            <Pagination.Next disabled={this.state.activePage<this.state.pages?false:true} onClick={()=>{this.setState({activePage:this.state.activePage+1})}}/>
                                         </Pagination>
                         </div>
                 </div>

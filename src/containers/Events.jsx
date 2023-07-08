@@ -63,7 +63,7 @@ export default class Events extends React.Component {
             })
     }
     fetchEventPrew = (a) => {
-        this.setState({loading: true})
+        this.setState({loading: true,responseMessage:"Loading Events..."})
         getEvents()
             .then(response => {
                 response = response.map((r, index) => {
@@ -89,7 +89,7 @@ export default class Events extends React.Component {
             })
     }
     fetchEventNext = (a) => {
-        this.setState({loading: true})
+        this.setState({loading: true,responseMessage:"Loading Events..."})
         getEvents()
             .then(response => {
                 response = response.map((r, index) => {
@@ -375,8 +375,8 @@ export default class Events extends React.Component {
                     </div>
                     <div className="text-center">
                             <Pagination>
-                                            <Pagination.Prev disabled={this.state.activePage>1?false:true}  onClick={()=>{this.fetchEventPrew(this.state.activePage)}}/>
-                                            <Pagination.Next disabled={this.state.activePage<this.state.pages?false:true} onClick={()=>{this.fetchEventNext(this.state.activePage)}}/>
+                                            <Pagination.Prev disabled={this.state.activePage>1?false:true}  onClick={()=>{this.setState({activePage:this.state.activePage-1})}}/>
+                                            <Pagination.Next disabled={this.state.activePage<this.state.pages?false:true} onClick={()=>{this.setState({activePage:this.state.activePage+1})}}/>
                                         </Pagination>
                         </div>
                     {/* <div className="text-center">

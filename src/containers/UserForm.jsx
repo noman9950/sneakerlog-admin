@@ -19,7 +19,7 @@ export default class UserForm extends React.Component {
       user: {
         uuid: '',
         name: '',
-        userName: '',
+        username: '',
         phone: '',
         collections: '',
         sneakerSize: '',
@@ -112,6 +112,7 @@ export default class UserForm extends React.Component {
           })
       }
       else {
+        console.log(user,"userData")
         addUser(user)
           .then((response) => {
             this.setState({
@@ -242,9 +243,9 @@ export default class UserForm extends React.Component {
                         <input
                           required
                           type="text"
-                          name="userName"
+                          name="username"
                           className="form-control"
-                          value={user.userName}
+                          value={user.username}
                           onChange={this.handleInputChange}
                         />
                       </div>

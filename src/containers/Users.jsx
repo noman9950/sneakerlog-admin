@@ -11,6 +11,7 @@ import {API_END_POINT} from '../config';
 import Cookie from 'js-cookie';
 import Grid from "@material-ui/core/Grid/Grid";
 import { Button } from 'reactstrap';
+import { isEmpty } from 'lodash';
 
 const token = Cookie.get('sneakerlog_access_token');
 
@@ -371,12 +372,14 @@ export default class Users extends React.Component {
                                                    onChange={(e) => this.handleSelectUser(user.index-1)}/>
                                         </span> {user.index}</td>
                                         <td>{<img style={{height: '50px', width: '50px'}}
-                                                  src={user.profileImage}/>}</td>
+                                                  src={isEmpty(user.profileImage)?
+                                                    "https://firebasestorage.googleapis.com/v0/b/sneakerlog-c7664.appspot.com/o/Users%2Fsneakerlog_profile.png?alt=media&token=4e7c748e-ba97-40e2-84b0-724d98f9309b"
+                                                :user.profileImage}/>}</td>
                                         <td>{user.name}</td>
                                         <td>{user.username}</td>
                                         <td>{user.phone}</td>
                                         <td>{user.collections}</td>
-                                        <td>{user.size}</td>
+                                        <td>{user.sneakerSize}</td>
                                         <td>{user.exports}</td>
                                         <td>{user.sneakerCount}</td>
                                         <td>{user.sneakerScans}</td>
@@ -411,9 +414,9 @@ export default class Users extends React.Component {
                             {/* <Button>aa</Button> */}
                             {/* {console.log(this.state.pages,"pages")} */}
                             <Pagination>
-                                            <Pagination.Prev disabled={this.state.activePage>1?false:true}  onClick={()=>{this.setState({loading:true,responseMessage:"Loading data"});this.fetchUsers2(this.state.activePage)}}/>
+                                            <Pagination.Prev disabled={this.state.activePage>1?false:true}  onClick={()=>{this.setState({activePage:this.state.activePage-1})}}/>
                                             {/* <Pagination.Item/> */}
-                                            <Pagination.Next disabled={this.state.activePage<this.state.pages?false:true} onClick={()=>{this.setState({loading:true,responseMessage:"Loading data"});this.fetchUsers1(this.state.activePage)}}/>
+                                            <Pagination.Next disabled={this.state.activePage<this.state.pages?false:true} onClick={()=>{this.setState({activePage:this.state.activePage+1})}}/>
                                         </Pagination>
                                         {/* <Pagination>{"abc"}</Pagination> */}
                         </div>

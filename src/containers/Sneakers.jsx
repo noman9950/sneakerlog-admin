@@ -58,7 +58,7 @@ export default class Sneakers extends React.Component {
             })
     }
     fetchDataPrew = (a) => {
-        this.setState({loading: true})
+        this.setState({loading: true,responseMessage:"Loading Sneakers Release Dates..."})
         getSneakersReleaseDates()
             .then(response => {
 
@@ -86,7 +86,7 @@ export default class Sneakers extends React.Component {
             })
     }
     fetchDataNext = (a) => {
-        this.setState({loading: true})
+        this.setState({loading: true,responseMessage:"Loading Sneakers Release Dates..."})
         getSneakersReleaseDates()
             .then(response => {
 
@@ -361,8 +361,8 @@ export default class Sneakers extends React.Component {
                     </div>
                     <div className="text-center">
                             <Pagination>
-                                            <Pagination.Prev disabled={this.state.activePage>1?false:true}  onClick={()=>{this.fetchDataPrew(this.state.activePage)}}/>
-                                            <Pagination.Next disabled={this.state.activePage<this.state.pages?false:true} onClick={()=>{this.fetchDataNext(this.state.activePage)}}/>
+                                            <Pagination.Prev disabled={this.state.activePage>1?false:true}  onClick={()=>{this.setState({activePage:this.state.activePage-1})}}/>
+                                            <Pagination.Next disabled={this.state.activePage<this.state.pages?false:true} onClick={()=>{this.setState({activePage:this.state.activePage+1})}}/>
                                         </Pagination>
                         </div>
                     {/* <div className="text-center">
